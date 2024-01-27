@@ -12,6 +12,11 @@ import static academy.kata.calculator.constants.CalculatorConstants.*;
 
 public class Main {
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(calc(scanner.nextLine()));
+    }
+
     public static String calc(String input) throws CalculatorException{
         int result;
         Scanner sc = new Scanner(input);
