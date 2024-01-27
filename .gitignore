@@ -1,0 +1,14 @@
+# Intellij
+.idea/
+.target/
+*.iml
+*.xml
+*.iws
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+/.idea/
