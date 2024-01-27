@@ -1,12 +1,13 @@
-package academy.kata.calculator.exepcions.logics;
+package academy.kata.calculator.logics;
 
 import academy.kata.calculator.converteres.RomanToArabic;
 import academy.kata.calculator.enums.NumberSystem;
 import academy.kata.calculator.enums.Operations;
 import academy.kata.calculator.exepcions.CalculatorException;
-import static academy.kata.calculator.constants.CalculatorConstants.MAX_INPUT_ARABIC_VALUE;
-import static academy.kata.calculator.constants.CalculatorConstants.MIN_INPUT_ARABIC_VALUE;
-import static academy.kata.calculator.exepcions.logics.Validator.validate;
+
+import static academy.kata.calculator.constants.CalculatorConstants.*;
+import static academy.kata.calculator.constants.MainConstants.INTERNAL_ERROR_EXCEPTION_MSG;
+import static academy.kata.calculator.logics.Validator.validate;
 
 
 public class Calculator {
@@ -32,10 +33,11 @@ public class Calculator {
                     break;
 
                 default:
-                    throw new CalculatorException("Внутренняя ошибка программы, неизвестная числовая система.");
+                    throw new CalculatorException(INTERNAL_ERROR_EXCEPTION_MSG);
             }
         } catch (NumberFormatException e) {
-            throw new CalculatorException("Переданные аргументы не являются целыми числами: аргумент1 = '" + arg1 + "'; аргумент2 = '" + arg2 + "'.");
+            throw new CalculatorException(NOT_INTEGER_EXCEPTION_HEAD_MSG + arg1
+                    + NOT_INTEGER_EXCEPTION_MIDDLE_MSG + arg2 + NOT_INTEGER_EXCEPTION_TAIL_MSG);
         }
 
         Operations operation = null;
@@ -48,7 +50,8 @@ public class Calculator {
         }
 
         if (operation == null) {
-            throw new CalculatorException("Передана невыполнимая/ невозможная операция: '" + operand + "'.");
+            throw new CalculatorException(IMPOSSIBLE_OPERATION_EXCEPTION_HEAD_MSG
+                    + operand + IMPOSSIBLE_OPERATION_EXCEPTION_TAIL_MSG);
         }
 
         return operation.calculate(first, second);
