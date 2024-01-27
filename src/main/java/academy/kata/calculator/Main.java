@@ -16,6 +16,10 @@ import static academy.kata.calculator.constants.CalculatorConstants.*;
 import static academy.kata.calculator.constants.MainConstants.*;
 
 
+/**
+ * @author Yury Lapitski
+ * @version 2024-01-27
+ */
 public class Main {
 
     public static void main(String[] args) {
