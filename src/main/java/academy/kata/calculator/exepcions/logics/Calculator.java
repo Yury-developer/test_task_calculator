@@ -1,4 +1,4 @@
-package academy.kata.calculator.logics;
+package academy.kata.calculator.exepcions.logics;
 
 import academy.kata.calculator.converteres.RomanToArabic;
 import academy.kata.calculator.enums.NumberSystem;
@@ -6,7 +6,7 @@ import academy.kata.calculator.enums.Operations;
 import academy.kata.calculator.exepcions.CalculatorException;
 import static academy.kata.calculator.constants.CalculatorConstants.MAX_INPUT_ARABIC_VALUE;
 import static academy.kata.calculator.constants.CalculatorConstants.MIN_INPUT_ARABIC_VALUE;
-import static academy.kata.calculator.logics.Validator.validate;
+import static academy.kata.calculator.exepcions.logics.Validator.validate;
 
 
 public class Calculator {

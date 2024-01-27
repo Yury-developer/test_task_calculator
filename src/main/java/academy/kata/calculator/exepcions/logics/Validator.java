@@ -1,4 +1,4 @@
-package academy.kata.calculator.logics;
+package academy.kata.calculator.exepcions.logics;
 
 import academy.kata.calculator.exepcions.CalculatorException;
 
