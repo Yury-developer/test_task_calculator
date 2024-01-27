@@ -52,4 +52,4 @@ _Output_:
 
 **URL task:** https://testovoe.kata.academy/java/step4
 
-**URL on github:** https://github.com/
+**URL on github:** https://github.com/Yury-developer/test_task_calculator
