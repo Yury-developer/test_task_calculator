@@ -1,6 +1,7 @@
 package academy.kata.calculator.logics;
 
 import academy.kata.calculator.exepcions.CalculatorException;
+import academy.kata.calculator.validator.ArabicValidator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -19,7 +20,7 @@ class ValidatorTest {
             CalculatorException actual = null;
 
             try {
-                Validator.validate(test, min, max);
+                ArabicValidator.validate(test, min, max);
             } catch (CalculatorException e) {
                 actual = e;
             }
@@ -36,7 +37,7 @@ class ValidatorTest {
             Class actual = null;
 
             try {
-                Validator.validate(test, min, max);
+                ArabicValidator.validate(test, min, max);
             } catch (CalculatorException e) {
                 actual = e.getClass();
             }
@@ -53,7 +54,7 @@ class ValidatorTest {
             Class actual = null;
 
             try {
-                Validator.validate(test, min, max);
+                ArabicValidator.validate(test, min, max);
             } catch (CalculatorException e) {
                 actual = e.getClass();
             }

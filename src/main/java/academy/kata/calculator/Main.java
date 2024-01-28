@@ -4,7 +4,7 @@ import academy.kata.calculator.converteres.ArabicToRoman;
 import academy.kata.calculator.enums.NumberSystem;
 import academy.kata.calculator.exepcions.CalculatorException;
 import academy.kata.calculator.logics.Calculator;
-import academy.kata.calculator.logics.Validator;
+import academy.kata.calculator.validator.ArabicValidator;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -35,7 +35,7 @@ public class Main {
                 return Integer.toString(result);
 
             case ROMAN:
-                Validator.validate(result, MIN_INPUT_ROMAN_VALUE, MAX_INPUT_ROMAN_VALUE);
+                ArabicValidator.validate(result, MIN_INPUT_ROMAN_VALUE, MAX_INPUT_ROMAN_VALUE);
                 return ArabicToRoman.convert(result);
 
             default:
@@ -60,6 +60,7 @@ public class Main {
             }
         }
 
-        throw new CalculatorException(INVALID_CHARACTERS_EXCEPTION_HEAD_MSG + expression + INVALID_CHARACTERS_EXCEPTION_TAIL_MSG);
+        throw new CalculatorException(INVALID_CHARACTERS_EXCEPTION_HEAD_MSG
+                + expression + INVALID_CHARACTERS_EXCEPTION_TAIL_MSG);
     }
 }

@@ -7,7 +7,7 @@ import academy.kata.calculator.exepcions.CalculatorException;
 
 import static academy.kata.calculator.constants.CalculatorConstants.*;
 import static academy.kata.calculator.constants.MainConstants.INTERNAL_ERROR_EXCEPTION_MSG;
-import static academy.kata.calculator.logics.Validator.validate;
+import static academy.kata.calculator.validator.ArabicValidator.validate;
 
 
 public class Calculator {
