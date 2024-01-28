@@ -5,6 +5,8 @@ import academy.kata.calculator.enums.NumberSystem;
 import academy.kata.calculator.exepcions.CalculatorException;
 import academy.kata.calculator.logics.Calculator;
 import academy.kata.calculator.validator.ArabicValidator;
+import academy.kata.calculator.validator.RomanValidator;
+import academy.kata.calculator.validator.Validator;
 
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -44,20 +46,13 @@ public class Main {
     }
 
     static NumberSystem getNumberSystem(String expression) throws CalculatorException{
-        char ex = expression.trim().charAt(0);
+        boolean isArabic = ArabicValidator.isArabicExpression(expression);
+        boolean isRoman = RomanValidator.isRomanExpression(expression);
 
-        char[] possibleRomanNumerals = POSSIBLE_ROMAN_NUMERAL.toCharArray();
-        for (char possible: possibleRomanNumerals) {
-            if (ex == possible) {
-                return NumberSystem.ROMAN;
-            }
-        }
-
-        char[] possibleArabicNumerals = POSSIBLE_ARABIC_NUMERAL.toCharArray();
-        for (char possible: possibleArabicNumerals) {
-            if (ex == possible) {
-                return NumberSystem.ARABIC;
-            }
+        if (isArabic && !isRoman) {
+            return NumberSystem.ARABIC;
+        } else if (!isArabic && isRoman) {
+            return NumberSystem.ROMAN;
         }
 
         throw new CalculatorException(INVALID_CHARACTERS_EXCEPTION_HEAD_MSG
