@@ -71,7 +71,7 @@ public class Main {
 
 
 
-    private static NumberSystem getNumberSystem(String expression) throws CalculatorException{
+    static NumberSystem getNumberSystem(String expression) throws CalculatorException{
         char ex = expression.trim().charAt(0);
 
         char[] possibleRomanNumerals = POSSIBLE_ROMAN_NUMERAL.toCharArray();
