@@ -50,6 +50,6 @@ _Output_:
 `throws Exception //т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)`
 
 
-**URL task:** https://testovoe.kata.academy/java/step4
+**URL - task:** https://testovoe.kata.academy/java/step4
 
-**URL on github:** https://github.com/Yury-developer/test_task_calculator
+**URL - my solution is on github:** https://github.com/Yury-developer/test_task_calculator

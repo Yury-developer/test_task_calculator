@@ -1,7 +1,8 @@
 package academy.kata.calculator.outputProcessors;
 
+
 public interface OutProcessor {
 
-    void printResult(String res);
+    void print(String... res);
 
 }

@@ -1,5 +1,6 @@
 package academy.kata.calculator.enums;
 
+
 public enum Operations {
 
     ADDITION("+") {
@@ -31,7 +32,7 @@ public enum Operations {
     };
 
 
-    private String operation;
+    private final String operation;
 
 
     Operations(String operation) {
