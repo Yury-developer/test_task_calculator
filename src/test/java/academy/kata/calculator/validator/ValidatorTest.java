@@ -4,9 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ValidatorTest {
+    private static final AbstractValidator ARABIC_VALIDATOR = new RomanValidator();
 
     @Nested
     public class RemoveOperationsFromExpressionTest {
@@ -15,7 +14,7 @@ class ValidatorTest {
         void shouldReturnFalse_WhenPassedEmptyLine() {
             final String test = "";
 
-            final boolean actual = ArabicValidator.isArabicExpression(test);
+            final boolean actual = ARABIC_VALIDATOR.isIt(test);
             Assertions.assertFalse(actual);
         }
 
@@ -24,7 +23,7 @@ class ValidatorTest {
             final String test = "5 + 8";
             final String expected = "5  8";
 
-            final String actual = Validator.removeOperationsFromExpression(test);
+            final String actual = ARABIC_VALIDATOR.removeOperationsFromExpression(test);
             Assertions.assertEquals(expected, actual);
         }
 
@@ -33,7 +32,7 @@ class ValidatorTest {
             final String test = "5 + 8 * 9 / 2 - 4";
             final String expected = "5  8  9  2  4";
 
-            final String actual = Validator.removeOperationsFromExpression(test);
+            final String actual = ARABIC_VALIDATOR.removeOperationsFromExpression(test);
             Assertions.assertEquals(expected, actual);
         }
         @Test
@@ -41,7 +40,7 @@ class ValidatorTest {
             final String test = " 5 +/+-* 8 */ 9 4 2 -- 4   ";
             final String expected = " 5  8  9 4 2  4   ";
 
-            final String actual = Validator.removeOperationsFromExpression(test);
+            final String actual = ARABIC_VALIDATOR.removeOperationsFromExpression(test);
             Assertions.assertEquals(expected, actual);
         }
 
@@ -53,7 +52,7 @@ class ValidatorTest {
             final String test = "X + I";
             final String expected = "X  I";
 
-            final String actual = Validator.removeOperationsFromExpression(test);
+            final String actual = ARABIC_VALIDATOR.removeOperationsFromExpression(test);
             Assertions.assertEquals(expected, actual);
         }
 
@@ -62,7 +61,7 @@ class ValidatorTest {
             final String test = "I + I * II / V - V";
             final String expected = "I  I  II  V  V";
 
-            final String actual = Validator.removeOperationsFromExpression(test);
+            final String actual = ARABIC_VALIDATOR.removeOperationsFromExpression(test);
             Assertions.assertEquals(expected, actual);
         }
         @Test
@@ -70,7 +69,7 @@ class ValidatorTest {
             final String test = " V +/+-* IV */ III III II -- V   ";
             final String expected = " V  IV  III III II  V   ";
 
-            final String actual = Validator.removeOperationsFromExpression(test);
+            final String actual = ARABIC_VALIDATOR.removeOperationsFromExpression(test);
             Assertions.assertEquals(expected, actual);
         }
     }

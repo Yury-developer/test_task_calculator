@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 
 class RomanValidatorTest {
+    private static final AbstractValidator ROMAN_VALIDATOR = new RomanValidator();
 
     @Nested
     public class IsRomanExpressionTest {
@@ -14,7 +15,7 @@ class RomanValidatorTest {
         void shouldReturnFalse_WhenPassedEmptyLine() {
             final String test = "";
 
-            final boolean actual = RomanValidator.isRomanExpression(test);
+            final boolean actual = ROMAN_VALIDATOR.isIt(test);
             Assertions.assertFalse(actual);
         }
 
@@ -22,7 +23,7 @@ class RomanValidatorTest {
         void shouldReturnTrue_WhenPassedCorrectRomanExpression_WithSingleOperation() {
             final String test = "X + V";
 
-            final boolean actual = RomanValidator.isRomanExpression(test);
+            final boolean actual = ROMAN_VALIDATOR.isIt(test);
             Assertions.assertTrue(actual);
         }
 
@@ -30,7 +31,7 @@ class RomanValidatorTest {
         void shouldReturnFalse_WhenPassedNotCorrectRomanExpression_WithSingleOperation() {
             final String test = "X + wV";
 
-            final boolean actual = RomanValidator.isRomanExpression(test);
+            final boolean actual = ROMAN_VALIDATOR.isIt(test);
             Assertions.assertFalse(actual);
         }
 
@@ -39,7 +40,7 @@ class RomanValidatorTest {
         void shouldReturnTrue_WhenPassedCorrectRomanExpression_WithAnyOperation() {
             final String test = "X + V * IV";
 
-            final boolean actual = RomanValidator.isRomanExpression(test);
+            final boolean actual = ROMAN_VALIDATOR.isIt(test);
             Assertions.assertTrue(actual);
         }
 
@@ -47,7 +48,7 @@ class RomanValidatorTest {
         void shouldReturnFalse_WhenPassedNotCorrectRomanExpression_WithAnyOperation() {
             final String test = "X + V *t IV";
 
-            final boolean actual = RomanValidator.isRomanExpression(test);
+            final boolean actual = ROMAN_VALIDATOR.isIt(test);
             Assertions.assertFalse(actual);
         }
     }
@@ -61,7 +62,7 @@ class RomanValidatorTest {
             final String test = "X + V";
             final String expected = "X  V";
 
-            final String actual = RomanValidator.removeOperationsFromExpression(test);
+            final String actual = ROMAN_VALIDATOR.removeOperationsFromExpression(test);
             Assertions.assertEquals(expected, actual);
         }
 
@@ -70,7 +71,7 @@ class RomanValidatorTest {
             final String test = "X + II * I / V - II";
             final String expected = "X  II  I  V  II";
 
-            final String actual = RomanValidator.removeOperationsFromExpression(test);
+            final String actual = ROMAN_VALIDATOR.removeOperationsFromExpression(test);
             Assertions.assertEquals(expected, actual);
         }
 
@@ -79,7 +80,7 @@ class RomanValidatorTest {
             final String test = " I +/+-* III */ V IV I  -- 4   ";
             final String expected = " I  III  V IV I   4   ";
 
-            final String actual = RomanValidator.removeOperationsFromExpression(test);
+            final String actual = ROMAN_VALIDATOR.removeOperationsFromExpression(test);
             Assertions.assertEquals(expected, actual);
         }
     }

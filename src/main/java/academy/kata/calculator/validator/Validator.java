@@ -1,15 +1,15 @@
 package academy.kata.calculator.validator;
 
-import academy.kata.calculator.enums.Operations;
+import academy.kata.calculator.exepcions.CalculatorException;
 
 
-public abstract class Validator {
+public interface Validator {
 
-    protected static String removeOperationsFromExpression(String expression) {
-        Operations[] operations = Operations.values();
-        for (Operations current: operations) {
-            expression = expression.replace(current.toString(), "");
-        }
-        return expression;
-    }
+    void validate(int value, int min, int max) throws CalculatorException;
+
+    boolean isIt(String input);
+
+    String removeNums(String expression);
+
+    String removeOperationsFromExpression(String expression);
 }

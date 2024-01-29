@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 
 class ArabicValidatorTest {
+    private static final Validator ARABIC_VALIDATOR = new ArabicValidator();
 
     @Nested
     public class ValidateTest {
@@ -19,7 +20,7 @@ class ArabicValidatorTest {
             CalculatorException actual = null;
 
             try {
-                ArabicValidator.validate(test, min, max);
+                ARABIC_VALIDATOR.validate(test, min, max);
             } catch (CalculatorException e) {
                 actual = e;
             }
@@ -36,7 +37,7 @@ class ArabicValidatorTest {
             Class actual = null;
 
             try {
-                ArabicValidator.validate(test, min, max);
+                ARABIC_VALIDATOR.validate(test, min, max);
             } catch (CalculatorException e) {
                 actual = e.getClass();
             }
@@ -53,7 +54,7 @@ class ArabicValidatorTest {
             Class actual = null;
 
             try {
-                ArabicValidator.validate(test, min, max);
+                ARABIC_VALIDATOR.validate(test, min, max);
             } catch (CalculatorException e) {
                 actual = e.getClass();
             }
@@ -70,7 +71,7 @@ class ArabicValidatorTest {
         void shouldReturnFalse_WhenPassedEmptyLine() {
             final String test = "";
 
-            final boolean actual = ArabicValidator.isArabicExpression(test);
+            final boolean actual = ARABIC_VALIDATOR.isIt(test);
             Assertions.assertFalse(actual);
         }
 
@@ -78,7 +79,7 @@ class ArabicValidatorTest {
         void shouldReturnTrue_WhenPassedCorrectArabicExpression_WithSingleOperation() {
             final String test = "2 + 5";
 
-            final boolean actual = ArabicValidator.isArabicExpression(test);
+            final boolean actual = ARABIC_VALIDATOR.isIt(test);
             Assertions.assertTrue(actual);
         }
 
@@ -86,7 +87,7 @@ class ArabicValidatorTest {
         void shouldReturnFalse_WhenPassedNotCorrectArabicExpression_WithSingleOperation() {
             final String test = "2 + w5";
 
-            final boolean actual = ArabicValidator.isArabicExpression(test);
+            final boolean actual = ARABIC_VALIDATOR.isIt(test);
             Assertions.assertFalse(actual);
         }
 
@@ -95,7 +96,7 @@ class ArabicValidatorTest {
         void shouldReturnTrue_WhenPassedCorrectArabicExpression_WithAnyOperation() {
             final String test = "2 + 5 * 8";
 
-            final boolean actual = ArabicValidator.isArabicExpression(test);
+            final boolean actual = ARABIC_VALIDATOR.isIt(test);
             Assertions.assertTrue(actual);
         }
 
@@ -103,7 +104,7 @@ class ArabicValidatorTest {
         void shouldReturnFalse_WhenPassedNotCorrectArabicExpression_WithAnyOperation() {
             final String test = "4 + 1 *t 6";
 
-            final boolean actual = RomanValidator.isRomanExpression(test);
+            final boolean actual = ARABIC_VALIDATOR.isIt(test);
             Assertions.assertFalse(actual);
         }
     }
@@ -117,7 +118,7 @@ class ArabicValidatorTest {
             final String test = "5 + 9";
             final String expected = " + ";
 
-            final String actual = ArabicValidator.removeArabicNumsFromExpression(test);
+            final String actual = ARABIC_VALIDATOR.removeNums(test);
             Assertions.assertEquals(expected, actual);
         }
 
@@ -126,7 +127,7 @@ class ArabicValidatorTest {
             final String test = "8 + 7 * 7 / 8 - 9";
             final String expected = " +  *  /  - ";
 
-            final String actual = ArabicValidator.removeArabicNumsFromExpression(test);
+            final String actual = ARABIC_VALIDATOR.removeNums(test);
             Assertions.assertEquals(expected, actual);
         }
 
@@ -135,7 +136,7 @@ class ArabicValidatorTest {
             final String test = " 8 +/+-* 8 */ 9 6 4  -- 4   ";
             final String expected = "  +/+-*  */     --    ";
 
-            final String actual = ArabicValidator.removeArabicNumsFromExpression(test);
+            final String actual = ARABIC_VALIDATOR.removeNums(test);
             Assertions.assertEquals(expected, actual);
         }
     }

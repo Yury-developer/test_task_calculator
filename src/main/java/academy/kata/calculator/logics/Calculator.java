@@ -4,13 +4,16 @@ import academy.kata.calculator.converteres.RomanToArabic;
 import academy.kata.calculator.enums.NumberSystem;
 import academy.kata.calculator.enums.Operations;
 import academy.kata.calculator.exepcions.CalculatorException;
-
+import academy.kata.calculator.validator.ArabicValidator;
+import academy.kata.calculator.validator.RomanValidator;
+import academy.kata.calculator.validator.Validator;
 import static academy.kata.calculator.constants.CalculatorConstants.*;
 import static academy.kata.calculator.constants.MainConstants.INTERNAL_ERROR_EXCEPTION_MSG;
-import static academy.kata.calculator.validator.ArabicValidator.validate;
 
 
 public class Calculator {
+    private static final Validator ARABIC_VALIDATOR = new ArabicValidator();
+    private static final Validator ROMAN_VALIDATOR = new RomanValidator();
 
     public static int getResult(String arg1, String operand, String arg2, NumberSystem numberSystem) throws CalculatorException{
         int first;
@@ -20,16 +23,16 @@ public class Calculator {
             switch (numberSystem) {
                 case ARABIC:
                     first = Integer.parseInt(arg1);
-                    validate(first, MIN_INPUT_ARABIC_VALUE, MAX_INPUT_ARABIC_VALUE);
+                    ARABIC_VALIDATOR.validate(first, MIN_INPUT_ARABIC_VALUE, MAX_INPUT_ARABIC_VALUE);
                     second = Integer.parseInt(arg2);
-                    validate(second, MIN_INPUT_ARABIC_VALUE, MAX_INPUT_ARABIC_VALUE);
+                    ARABIC_VALIDATOR.validate(second, MIN_INPUT_ARABIC_VALUE, MAX_INPUT_ARABIC_VALUE);
                     break;
 
                 case ROMAN:
                     first = RomanToArabic.convert(arg1);
-                    validate(first, MIN_INPUT_ARABIC_VALUE, MAX_INPUT_ARABIC_VALUE);
+                    ROMAN_VALIDATOR.validate(first, MIN_INPUT_ROMAN_VALUE, MAX_INPUT_ROMAN_VALUE);
                     second = RomanToArabic.convert(arg2);
-                    validate(second, MIN_INPUT_ARABIC_VALUE, MAX_INPUT_ARABIC_VALUE);
+                    ROMAN_VALIDATOR.validate(second, MIN_INPUT_ROMAN_VALUE, MAX_INPUT_ROMAN_VALUE);
                     break;
 
                 default:

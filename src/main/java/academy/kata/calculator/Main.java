@@ -16,14 +16,16 @@ import static academy.kata.calculator.constants.MainConstants.*;
 
 /**
  * @author Yury Lapitski
- * @version 2024-01-28
+ * @version 2024-01-29
  */
 public class Main {
+    private static final Validator ARABIC_VALIDATOR = new ArabicValidator();
+    private static final Validator ROMAN_VALIDATOR = new RomanValidator();
 
     public static String calc(String input) throws CalculatorException{
         int result;
         Scanner sc = new Scanner(input);
-        NumberSystem numberSystem = getNumberSystem(input);
+        final NumberSystem numberSystem = getNumberSystem(input);
 
         try {
             result = Calculator.getResult(sc.next(), sc.next(), sc.next(), numberSystem);
@@ -37,7 +39,7 @@ public class Main {
                 return Integer.toString(result);
 
             case ROMAN:
-                ArabicValidator.validate(result, MIN_INPUT_ROMAN_VALUE, MAX_INPUT_ROMAN_VALUE);
+                ROMAN_VALIDATOR.validate(result, MIN_OUTPUT_ROMAN_VALUE, MAX_OUTPUT_ROMAN_VALUE);
                 return ArabicToRoman.convert(result);
 
             default:
@@ -46,8 +48,8 @@ public class Main {
     }
 
     static NumberSystem getNumberSystem(String expression) throws CalculatorException{
-        boolean isArabic = ArabicValidator.isArabicExpression(expression);
-        boolean isRoman = RomanValidator.isRomanExpression(expression);
+        boolean isArabic = ARABIC_VALIDATOR.isIt(expression);
+        boolean isRoman = ROMAN_VALIDATOR.isIt(expression);
 
         if (isArabic && !isRoman) {
             return NumberSystem.ARABIC;
