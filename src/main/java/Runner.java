@@ -3,9 +3,9 @@ import academy.kata.calculator.inputProcessors.InConsoleProcessor;
 import academy.kata.calculator.inputProcessors.InProcessor;
 import academy.kata.calculator.outputProcessors.OutConsoleProcessor;
 import academy.kata.calculator.outputProcessors.OutProcessor;
-
 import static academy.kata.calculator.Main.calc;
 import static academy.kata.calculator.constants.MainConstants.*;
+
 
 public class Runner {
 

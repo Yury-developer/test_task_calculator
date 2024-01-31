@@ -19,10 +19,6 @@ public final class MainConstants {
     public static final String RESULT_MSG = "\nРезультат вычислений: ";
     public static final String EXIT_MSG = "\nОсуществлен выход из программы.\n";
 
-
-    public static final String NOT_ENOUGH_ARGUMENTS_EXCEPTION_HEAD_MSG = "Передано не верное выражение. В переданном выражении не хватает аргументов для вычисления.\n Выражение: '";
-    public static final String NOT_ENOUGH_ARGUMENTS_EXCEPTION_TAIL_MSG = "'.\n Описание ошибки: ";
-    
     public static final String INTERNAL_ERROR_EXCEPTION_MSG = "Внутренняя ошибка программы, неизвестная числовая система.";
 
     public static final String INVALID_CHARACTERS_EXCEPTION_HEAD_MSG = "Передано некорректное выражение, присутствуют недопустимые символы: '";

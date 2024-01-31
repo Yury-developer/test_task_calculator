@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+
 class ValidatorTest {
     private static final AbstractValidator ARABIC_VALIDATOR = new RomanValidator();
 
@@ -43,7 +44,6 @@ class ValidatorTest {
             final String actual = ARABIC_VALIDATOR.removeOperationsFromExpression(test);
             Assertions.assertEquals(expected, actual);
         }
-
 
 
 
