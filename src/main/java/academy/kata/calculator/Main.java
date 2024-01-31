@@ -23,7 +23,6 @@ public class Main {
     public static String calc(String input) throws CalculatorException{
         String result;
         final NumberSystem numberSystem = getNumberSystem(input);
-        System.out.println("\tnumberSystem = " + numberSystem);
 
         try {
             switch (numberSystem) {
@@ -40,6 +39,7 @@ public class Main {
                 default:
                     throw new CalculatorException(INTERNAL_ERROR_EXCEPTION_MSG);
             }
+
         } catch (NumberFormatException e) {
             throw new CalculatorException(NOT_INTEGER_EXCEPTION_HEAD_MSG + input + NOT_INTEGER_EXCEPTION_TAIL_MSG);
         }
@@ -56,10 +56,10 @@ public class Main {
             return NumberSystem.ARABIC;
         } else if (!isArabic && isRoman) {
             return NumberSystem.ROMAN;
+        } else {
+            throw new CalculatorException(INVALID_CHARACTERS_EXCEPTION_HEAD_MSG
+                    + expression + INVALID_CHARACTERS_EXCEPTION_TAIL_MSG);
         }
-
-        throw new CalculatorException(INVALID_CHARACTERS_EXCEPTION_HEAD_MSG
-                + expression + INVALID_CHARACTERS_EXCEPTION_TAIL_MSG);
     }
 
 

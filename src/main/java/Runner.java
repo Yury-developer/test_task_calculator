@@ -6,6 +6,7 @@ import academy.kata.calculator.outputProcessors.OutProcessor;
 import static academy.kata.calculator.Main.calc;
 import static academy.kata.calculator.constants.MainConstants.*;
 
+
 public class Runner {
 
     public static void main(String[] args) {

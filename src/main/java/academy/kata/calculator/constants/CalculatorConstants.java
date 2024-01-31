@@ -16,7 +16,6 @@ public final class CalculatorConstants {
     public static final int MAX_OUTPUT_ROMAN_VALUE = 3_999;
 
     public static final String NOT_INTEGER_EXCEPTION_HEAD_MSG = "Переданные аргументы не являются целыми числами: '";
-//    public static final String NOT_INTEGER_EXCEPTION_MIDDLE_MSG = "'; аргумент2 = '";
     public static final String NOT_INTEGER_EXCEPTION_TAIL_MSG = "'.";
 
     public static final String IMPOSSIBLE_OPERATION_EXCEPTION_HEAD_MSG = "Передана невыполнимая/ невозможная операция: ";

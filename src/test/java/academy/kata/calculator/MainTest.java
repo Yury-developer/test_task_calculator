@@ -12,7 +12,7 @@ public class MainTest extends TestCase {
     public class Calc {
 
         @Test
-        void shouldReturnCorrectResultInArabicNumberSystem_WhenPassedExpressionArabicNumerals() {
+        void shouldReturnCorrectResultInArabicNumberSystem_WhenPassedExpressionArabicNumerals_AndTwoArguments_AndResultIsPositive() {
             final String test = "5 * 10";
             final String expected = "50";
 
@@ -22,7 +22,38 @@ public class MainTest extends TestCase {
         }
 
         @Test
-        void shouldReturnCorrectResultInRomanNumberSystem_WhenPassedExpressionRomanNumerals() {
+        void shouldReturnCorrectResultInArabicNumberSystem_WhenPassedExpressionArabicNumerals_AndTwoArguments_AndResultIsNegative() {
+            final String test = "5 - 10";
+            final String expected = "-5";
+
+            final String actual = Main.calc(test);
+
+            Assertions.assertEquals(expected, actual);
+        }
+
+        @Test
+        void shouldReturnCorrectResultInArabicNumberSystem_WhenPassedExpressionArabicNumerals_AndAnyArguments_AndResultIsPositive() {
+            final String test = "5 * 10 * 10 - 1";
+            final String expected = "499";
+
+            final String actual = Main.calc(test);
+
+            Assertions.assertEquals(expected, actual);
+        }
+
+        @Test
+        void shouldReturnCorrectResultInArabicNumberSystem_WhenPassedExpressionArabicNumerals_AndAnyArguments_AndResultIsNegative() {
+            final String test = "5 - 8 - 10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 7 * 10 * 9";
+            final String expected = "1322980096";
+
+            final String actual = Main.calc(test);
+
+            Assertions.assertEquals(expected, actual);
+        }
+
+
+        @Test
+        void shouldReturnCorrectResultInRomanNumberSystem_WhenPassedExpressionRomanNumerals_AndTwoArguments() {
             final String test = "V * X";
             final String expected = "L";
 
@@ -30,7 +61,18 @@ public class MainTest extends TestCase {
 
             Assertions.assertEquals(expected, actual);
         }
+
+        @Test
+        void shouldReturnCorrectResultInRomanNumberSystem_WhenPassedExpressionRomanNumerals_AndAnyArguments() {
+            final String test = "V * X - I * IX";
+            final String expected = "CDXLI";
+
+            final String actual = Main.calc(test);
+
+            Assertions.assertEquals(expected, actual);
+        }
     }
+
 
     @Nested
     public class GetNumberSystem {
